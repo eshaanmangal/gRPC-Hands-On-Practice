@@ -1,0 +1,26 @@
+syntax = "proto3";
+package calc;
+option go_package = "calc/calc_proto";
+
+message SumRequest{
+  float firstNumber =1;
+  float secondNumber =2;
+}
+
+message SumResponse{
+  float result = 1;
+}
+
+message TwoNumbers{
+  float firstNumber =1;
+  float secondNumber =2;
+}
+
+message AirthmeticOperationsResponse{
+  float result =1;
+}
+
+service SumService{
+  rpc SumOfTwoNumbers(SumRequest) returns (SumResponse){};
+  rpc ArithmeticOperations(TwoNumbers) returns (stream AirthmeticOperationsResponse){};
+}
